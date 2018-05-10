@@ -5,9 +5,10 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      # ユーザーログイン後にユーザー情報のページにリダイレクトする
+      log_in user
+      redirect_to user
     else
-      flash.now[:danger] = "ユーザー情報間違っとるよ。"
+      flash[:danger] = "ユーザー情報間違っとるよ。"
       render 'new'
     end
   end
