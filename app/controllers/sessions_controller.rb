@@ -8,8 +8,12 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash[:danger] = "ユーザー情報間違っとるよ。"
+      flash.now[:danger] = "ユーザー情報間違っとるよ。"
       render 'new'
     end
+  end
+
+  def destroy
+    redirect_to root_path
   end
 end
