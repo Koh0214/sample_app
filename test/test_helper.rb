@@ -19,7 +19,6 @@ class ActiveSupport::TestCase
   end
 end
 
-
 class ActionDispatch::IntegrationTest
 
   # テストユーザーとしてログインする
